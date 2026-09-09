@@ -1,0 +1,17 @@
+{
+  "name": "jim-bednar-website",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Campaign website for Jim Bednar, Democratic candidate for Sullivan County Commissioner, District 2 (New Hampshire)",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "^6.0.2",
+    "astro": "^5.17.1",
+    "tailwindcss": "^3.4.19"
+  }
+}

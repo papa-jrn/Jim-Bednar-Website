@@ -1,0 +1,508 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import headshot from '../assets/headshot.jpg';
+
+const ACTBLUE = 'https://secure.actblue.com/donate/jim-bednar-1';
+const EMAIL = 'bednar4sullivannh@gmail.com';
+const CURRENT_SITE = 'https://bednar4nh.com/';
+const COUNTY_DEMS = 'https://vote.sullivancountynhdems.org/jim-bednar';
+
+// The four pillars, taken word-for-word from the campaign flyer.
+const pillars = [
+  {
+    title: 'Responsible stewardship of your tax dollars',
+    blurb:
+      'The county portion of your property tax bill is real money from real households. Every line of the county budget should be able to explain itself.',
+  },
+  {
+    title: 'Proven leadership and practical experience',
+    blurb:
+      'The commission is a management job — budgets, buildings, contracts, and people. Jim is running on a record of doing that work, not learning it on the job.',
+  },
+  {
+    title: 'Long-term roots in Sullivan County',
+    blurb:
+      'Croydon, Grantham, Newport, Plainfield, and Springfield are not a line on a map to Jim. They are home, and he has spent years showing up for them.',
+  },
+  {
+    title: 'Working together for a stronger community',
+    blurb:
+      'County government is not partisan work. It is nursing home shifts, jail beds, deeds, and dispatch — and it only works when people cooperate.',
+  },
+];
+
+// Sullivan County Commissioner District 2 — boundaries set in NH RSA 28.
+const towns = ['Croydon', 'Grantham', 'Newport', 'Plainfield', 'Springfield'];
+
+// Each topic is fetched on demand by htmx from /public/partials/.
+const topics = [
+  { id: 'commission', label: 'What commissioners do' },
+  { id: 'nursing-home', label: 'Sullivan County Health Care' },
+  { id: 'services', label: 'The rest of the county' },
+  { id: 'budget', label: 'Where the money comes from' },
+];
+
+const navLinks = [
+  { href: '#about', label: 'About Jim' },
+  { href: '#priorities', label: 'Priorities' },
+  { href: '#district', label: 'District 2' },
+  { href: '#county', label: 'County 101' },
+  { href: '#contact', label: 'Contact' },
+];
+---
+
+<Layout
+  title="Jim Bednar for Sullivan County Commissioner | District 2, New Hampshire"
+  description="Jim Bednar is the Democratic candidate for Sullivan County Commissioner in District 2 — Croydon, Grantham, Newport, Plainfield, and Springfield. Fresh thinking by an experienced manager."
+>
+  <!-- ===== Nav ===== -->
+  <header x-data="{ open: false }" class="sticky top-0 z-50 bg-white shadow-sm">
+    <div class="h-1.5 bg-navy"><div class="h-full w-1/3 bg-flag-red"></div></div>
+
+    <nav class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
+      <a href="#top" class="flex items-baseline gap-2">
+        <span class="text-flag-red" aria-hidden="true">&#9733;</span>
+        <span class="font-display text-xl font-extrabold uppercase tracking-tight text-navy"
+          >Jim Bednar</span
+        >
+        <span class="hidden text-sm italic text-slate-500 xl:inline"
+          >for Sullivan County Commissioner</span
+        >
+      </a>
+
+      <div class="hidden items-center gap-5 lg:flex">
+        {
+          navLinks.map((link) => (
+            <a
+              href={link.href}
+              class="whitespace-nowrap font-display text-sm font-semibold uppercase tracking-wide text-navy transition hover:text-flag-red"
+            >
+              {link.label}
+            </a>
+          ))
+        }
+        <a
+          href={ACTBLUE}
+          target="_blank"
+          rel="noopener"
+          class="rounded bg-flag-red px-4 py-2 font-display text-sm font-bold uppercase tracking-wider text-white transition hover:bg-flag-bright"
+          >Contribute</a
+        >
+      </div>
+
+      <button
+        class="rounded p-1 text-navy lg:hidden"
+        @click="open = !open"
+        :aria-expanded="open"
+        aria-label="Toggle menu"
+      >
+        <svg class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path x-show="!open" stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"></path>
+          <path x-show="open" x-cloak stroke-linecap="round" d="M6 6l12 12M6 18L18 6"></path>
+        </svg>
+      </button>
+    </nav>
+
+    <div x-show="open" x-cloak @click="open = false" class="border-t border-navy-pale lg:hidden">
+      <div class="flex flex-col gap-1 px-4 py-3">
+        {
+          navLinks.map((link) => (
+            <a
+              href={link.href}
+              class="py-2 font-display text-sm font-semibold uppercase tracking-wide text-navy"
+            >
+              {link.label}
+            </a>
+          ))
+        }
+        <a
+          href={ACTBLUE}
+          target="_blank"
+          rel="noopener"
+          class="mt-2 rounded bg-flag-red px-4 py-2 text-center font-display font-bold uppercase tracking-wider text-white"
+          >Contribute on ActBlue</a
+        >
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ===== Hero (yard sign, on white) ===== -->
+    <section id="top" class="bg-white">
+      <div class="mx-auto grid max-w-6xl items-center gap-12 px-4 py-14 md:grid-cols-5 md:py-20">
+        <div class="md:col-span-3">
+          <div class="flex gap-3 text-2xl text-flag-red" aria-hidden="true">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+
+          <h1
+            class="mt-4 font-display text-6xl font-black uppercase leading-[0.92] tracking-tighter text-navy sm:text-7xl lg:text-8xl"
+          >
+            Jim<br />Bednar
+          </h1>
+
+          <div class="mt-6 inline-flex items-center gap-3 bg-flag-red px-5 py-3">
+            <span class="text-white" aria-hidden="true">&#9733;</span>
+            <p
+              class="font-display text-base font-bold uppercase leading-tight tracking-wide text-white sm:text-lg"
+            >
+              Sullivan County Commissioner
+            </p>
+            <span class="text-white" aria-hidden="true">&#9733;</span>
+          </div>
+
+          <p
+            class="mt-4 font-display text-lg font-bold uppercase tracking-[0.12em] text-navy sm:text-xl sm:tracking-[0.2em]"
+          >
+            District 2 &middot; New Hampshire
+          </p>
+
+          <p class="mt-6 max-w-lg text-xl italic leading-relaxed text-slate-700">
+            &ldquo;Fresh thinking by an experienced manager.&rdquo;
+          </p>
+
+          <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+            <a
+              href={ACTBLUE}
+              target="_blank"
+              rel="noopener"
+              class="rounded bg-flag-red px-8 py-3 text-center font-display text-lg font-bold uppercase tracking-wider text-white shadow-md transition hover:bg-flag-bright"
+              >Contribute</a
+            >
+            <a
+              href="#about"
+              class="rounded border-2 border-navy px-8 py-3 text-center font-display text-lg font-bold uppercase tracking-wider text-navy transition hover:bg-navy hover:text-white"
+              >Meet Jim</a
+            >
+          </div>
+        </div>
+
+        <div class="md:col-span-2">
+          <div class="mx-auto max-w-xs md:max-w-sm">
+            <div class="relative">
+              <div
+                class="absolute -bottom-3 -right-3 h-full w-full bg-navy-pale"
+                aria-hidden="true"
+              >
+              </div>
+              <Image
+                src={headshot}
+                alt="Jim Bednar, smiling outdoors in a checked shirt in front of a green hedge"
+                class="relative aspect-[4/5] w-full border-4 border-navy object-cover object-center shadow-xl"
+                widths={[400, 773]}
+                sizes="(min-width: 768px) 24rem, 18rem"
+                loading="eager"
+              />
+            </div>
+            <p class="mt-7 text-center text-sm italic text-slate-500">
+              Jim Bednar, Democratic candidate for Sullivan County Commissioner
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== About ===== -->
+    <section id="about" class="scroll-mt-24 border-y-4 border-navy bg-navy-pale/40">
+      <div class="mx-auto max-w-4xl px-4 py-16 md:py-20">
+        <p class="font-display text-sm font-bold uppercase tracking-[0.25em] text-flag-red">
+          Meet Jim
+        </p>
+        <h2
+          class="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight text-navy sm:text-5xl"
+        >
+          An experienced manager, and a neighbor
+        </h2>
+
+        <div class="mt-8 space-y-5 text-lg leading-relaxed">
+          <p>
+            Jim Bednar is running for Sullivan County Commissioner in District 2 &mdash; the
+            towns of Croydon, Grantham, Newport, Plainfield, and Springfield &mdash; because
+            county government is a management job, and management is what he knows.
+          </p>
+          <p>
+            He is not new to this community or to the work of showing up for it. Jim chairs
+            the <strong>Springfield Democratic Town Committee</strong>, and he has spent years
+            building the kind of long-term roots in Sullivan County that make a candidate
+            accountable to the people he would serve.
+          </p>
+          <p>
+            His pitch is a plain one: the county runs a 156-bed nursing home, a jail, a
+            sheriff&rsquo;s office, a registry of deeds, and a payroll of roughly 280 people on
+            money raised almost entirely from local property taxpayers. That deserves careful,
+            unglamorous, professional management &mdash; and a commissioner willing to do the
+            homework before asking anyone for another dollar.
+          </p>
+        </div>
+
+        <!--
+          TODO (campaign): drop Jim's own biography in here — career history, years in
+          Springfield, family, boards served on. Everything above is drawn only from the
+          campaign flyer, the Sullivan County Democrats candidate page, and the New London
+          Democrats town committee listing.
+        -->
+
+        <blockquote class="mt-10 border-l-4 border-flag-red bg-white p-6 shadow-sm">
+          <p class="text-xl italic leading-relaxed text-navy-dark">
+            Responsible stewardship of your tax dollars. Proven leadership and practical
+            experience. Long-term roots in Sullivan County. Working together for a stronger
+            community.
+          </p>
+          <footer
+            class="mt-4 font-display text-sm font-bold uppercase tracking-widest text-flag-red"
+          >
+            &mdash; The Jim Bednar campaign, in four lines
+          </footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ===== Priorities ===== -->
+    <section id="priorities" class="scroll-mt-24 bg-white">
+      <div class="mx-auto max-w-6xl px-4 py-16 md:py-20">
+        <div class="max-w-2xl">
+          <p class="font-display text-sm font-bold uppercase tracking-[0.25em] text-flag-red">
+            What Jim Stands For
+          </p>
+          <h2
+            class="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight text-navy sm:text-5xl"
+          >
+            Four commitments
+          </h2>
+        </div>
+
+        <div class="mt-10 grid gap-6 sm:grid-cols-2">
+          {
+            pillars.map((pillar, i) => (
+              <div class="flex gap-5 border-t-4 border-navy bg-white p-6 shadow-md transition hover:-translate-y-1 hover:shadow-lg">
+                <span
+                  class="font-display text-4xl font-black leading-none text-navy-pale"
+                  aria-hidden="true"
+                >
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <h3 class="font-display text-lg font-extrabold uppercase leading-snug tracking-wide text-navy">
+                    {pillar.title}
+                  </h3>
+                  <p class="mt-2 leading-relaxed text-slate-700">{pillar.blurb}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== District 2 ===== -->
+    <section id="district" class="scroll-mt-24 bg-navy text-white">
+      <div class="mx-auto grid max-w-6xl gap-12 px-4 py-16 md:grid-cols-2 md:py-20">
+        <div>
+          <p class="font-display text-sm font-bold uppercase tracking-[0.25em] text-white/70">
+            The District
+          </p>
+          <h2 class="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight sm:text-5xl">
+            Five towns,<br />one seat
+          </h2>
+          <div class="mt-6 space-y-5 text-lg leading-relaxed text-navy-pale">
+            <p>
+              Sullivan County Commissioner District 2 covers five towns along the
+              county&rsquo;s eastern and northern edge: Croydon, Grantham, Newport,
+              Plainfield, and Springfield. Newport is the county seat, so District 2 also
+              happens to be where most of county government sits.
+            </p>
+            <p>
+              Between them these towns send one commissioner to a three-member board that
+              sets the county budget for all 528 square miles, fourteen towns, and the city
+              of Claremont. It is a small seat with a long reach &mdash; and it turns over
+              rarely enough that who holds it genuinely matters.
+            </p>
+          </div>
+        </div>
+
+        <div class="md:pt-16">
+          <h3 class="font-display text-sm font-bold uppercase tracking-[0.25em] text-white/70">
+            District 2 towns
+          </h3>
+          <ul class="mt-5 space-y-3">
+            {
+              towns.map((town) => (
+                <li class="flex items-center gap-4 border-l-4 border-flag-red bg-navy-light/30 px-5 py-3">
+                  <span class="text-white/60" aria-hidden="true">
+                    &#9733;
+                  </span>
+                  <span class="font-display text-xl font-bold uppercase tracking-wide">{town}</span>
+                </li>
+              ))
+            }
+          </ul>
+          <p class="mt-6 text-sm text-navy-pale/80">
+            District boundaries are set in NH RSA 28. District 1 is Claremont and Cornish;
+            District 3 is the county&rsquo;s eight remaining towns.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== County 101 (htmx-loaded fragments) ===== -->
+    <section id="county" class="scroll-mt-24 bg-white">
+      <div class="mx-auto max-w-5xl px-4 py-16 md:py-20">
+        <div class="max-w-2xl">
+          <p class="font-display text-sm font-bold uppercase tracking-[0.25em] text-flag-red">
+            County Government 101
+          </p>
+          <h2
+            class="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight text-navy sm:text-5xl"
+          >
+            The most overlooked race on the ballot
+          </h2>
+          <p class="mt-4 text-lg leading-relaxed text-slate-700">
+            Most voters can name their state rep and their selectboard. Almost nobody can name
+            a county commissioner &mdash; even though the county spends millions of your
+            property tax dollars every year. Here is what the job actually covers.
+          </p>
+        </div>
+
+        <div x-data="{ active: 'commission' }" class="mt-10 grid gap-8 md:grid-cols-[16rem_1fr]">
+          <div class="flex flex-col gap-2">
+            {
+              topics.map((topic) => (
+                <button
+                  type="button"
+                  hx-get={`/partials/${topic.id}.html`}
+                  hx-target="#county-answer"
+                  hx-swap="innerHTML"
+                  hx-indicator="#county-loading"
+                  x-on:click={`active = '${topic.id}'`}
+                  x-bind:class={`active === '${topic.id}' ? 'border-flag-red bg-flag-pale text-navy' : 'border-navy-pale bg-white text-slate-600 hover:border-navy hover:text-navy'`}
+                  class="border-l-4 px-5 py-3 text-left font-display text-sm font-bold uppercase tracking-wide transition"
+                >
+                  {topic.label}
+                </button>
+              ))
+            }
+          </div>
+
+          <div class="relative min-h-[18rem] border-t-4 border-navy bg-navy-pale/30 p-6 sm:p-8">
+            <span
+              id="county-loading"
+              class="htmx-indicator absolute right-6 top-6 font-display text-xs font-bold uppercase tracking-widest text-flag-red"
+              >Loading&hellip;</span
+            >
+            <div
+              id="county-answer"
+              class="text-lg text-slate-800"
+              hx-get="/partials/commission.html"
+              hx-trigger="load"
+              hx-swap="innerHTML"
+              aria-live="polite"
+            >
+              <p class="italic text-slate-500">Pick a topic to read more.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contact / Get involved ===== -->
+    <section id="contact" class="scroll-mt-24 border-t-4 border-flag-red bg-navy-pale/40">
+      <div class="mx-auto max-w-4xl px-4 py-16 text-center md:py-20">
+        <div class="flex justify-center gap-4 text-2xl text-flag-red" aria-hidden="true">
+          <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+        </div>
+        <h2
+          class="mt-5 font-display text-4xl font-extrabold uppercase tracking-tight text-navy sm:text-5xl"
+        >
+          Get involved
+        </h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-slate-700">
+          County races are won on yard signs, kitchen tables, and neighbors talking to
+          neighbors. Chip in, ask for a sign, or just email Jim a question about the county
+          &mdash; he will answer it.
+        </p>
+
+        <div class="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+          <a
+            href={ACTBLUE}
+            target="_blank"
+            rel="noopener"
+            class="rounded bg-flag-red px-10 py-4 text-center font-display text-lg font-bold uppercase tracking-wider text-white shadow-md transition hover:bg-flag-bright"
+            >Contribute on ActBlue</a
+          >
+          <a
+            href={`mailto:${EMAIL}`}
+            class="rounded border-2 border-navy px-10 py-4 text-center font-display text-lg font-bold uppercase tracking-wider text-navy transition hover:bg-navy hover:text-white"
+            >Email Jim</a
+          >
+        </div>
+
+        <div class="mt-10 grid gap-4 text-left sm:grid-cols-3">
+          <div class="border-t-2 border-navy bg-white p-5">
+            <p class="font-display text-xs font-bold uppercase tracking-widest text-flag-red">
+              Email
+            </p>
+            <a href={`mailto:${EMAIL}`} class="mt-2 block break-all text-navy hover:underline"
+              >{EMAIL}</a
+            >
+          </div>
+          <div class="border-t-2 border-navy bg-white p-5">
+            <p class="font-display text-xs font-bold uppercase tracking-widest text-flag-red">
+              Campaign site
+            </p>
+            <a href={CURRENT_SITE} class="mt-2 block break-all text-navy hover:underline"
+              >bednar4nh.com</a
+            >
+          </div>
+          <div class="border-t-2 border-navy bg-white p-5">
+            <p class="font-display text-xs font-bold uppercase tracking-widest text-flag-red">
+              County Democrats
+            </p>
+            <a
+              href={COUNTY_DEMS}
+              target="_blank"
+              rel="noopener"
+              class="mt-2 block break-all text-navy hover:underline">Jim&rsquo;s candidate page</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="bg-navy text-navy-pale">
+    <div class="mx-auto max-w-4xl space-y-3 px-4 py-10 text-center text-sm">
+      <p class="font-display text-lg font-extrabold uppercase tracking-wide text-white">
+        Jim Bednar for Sullivan County Commissioner
+      </p>
+      <p class="font-display text-xs font-bold uppercase tracking-[0.25em] text-white/70">
+        Paid for by the Friends of Jim Bednar
+      </p>
+      <p>
+        <a href={`mailto:${EMAIL}`} class="hover:underline">{EMAIL}</a>
+        &nbsp;&bull;&nbsp;
+        <a href={ACTBLUE} target="_blank" rel="noopener" class="hover:underline">Contribute</a>
+      </p>
+      <p class="pt-2 text-xs text-navy-pale/60">
+        &copy; {new Date().getFullYear()} Friends of Jim Bednar. All rights reserved.
+      </p>
+    </div>
+  </footer>
+</Layout>
+
+<style is:global>
+  [x-cloak] {
+    display: none !important;
+  }
+
+  /* htmx loading indicator */
+  .htmx-indicator {
+    opacity: 0;
+    transition: opacity 150ms ease-in;
+  }
+  .htmx-request .htmx-indicator,
+  .htmx-request.htmx-indicator {
+    opacity: 1;
+  }
+</style>
