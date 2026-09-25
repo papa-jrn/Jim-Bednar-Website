@@ -21,7 +21,7 @@ const pillars = [
   {
     title: 'Proven leadership and practical experience',
     blurb:
-      'Nearly forty years with USAID heading programs across Africa, Asia, the Middle East and post-Communist Czechoslovakia. Budgets, staff, and hard decisions in places where getting it wrong had consequences.',
+      'Nearly forty years running USAID foreign assistance programs across Africa, Asia, the Middle East and post-Communist Czechoslovakia. Budgets, staff, and hard decisions in places where getting it wrong had consequences.',
   },
   {
     title: 'Long-term roots in Sullivan County',
@@ -73,7 +73,7 @@ const navLinks = [
 
 <Layout
   title="Jim Bednar for Sullivan County Commissioner | New Hampshire"
-  description="Jim Bednar is the Democratic candidate for Sullivan County Commissioner — nearly forty years with USAID, seventy years of family roots in Springfield. Fresh thinking by an experienced manager."
+  description="Jim Bednar is the Democratic candidate for Sullivan County Commissioner — nearly forty years of USAID foreign assistance work, seventy years of family roots in Springfield. Fresh thinking by an experienced manager."
 >
   <!-- ===== Nav ===== -->
   <header x-data="{ open: false }" class="sticky top-0 z-50 bg-white shadow-sm">
@@ -226,6 +226,24 @@ const navLinks = [
       </div>
     </section>
 
+    <!-- ===== Quote band ===== -->
+    <section class="bg-navy text-white">
+      <div class="mx-auto max-w-4xl px-4 py-14 text-center md:py-16">
+        <div class="mb-6 flex justify-center gap-5 text-xl text-white/40" aria-hidden="true">
+          <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+        </div>
+        <blockquote>
+          <p class="font-serif text-2xl font-medium italic leading-relaxed sm:text-3xl">
+            When Jim becomes Commissioner, it will be the fourth time he has come out of
+            retirement to serve.
+          </p>
+          <footer class="mt-6 font-display text-sm font-bold uppercase tracking-[0.25em] text-white/70">
+            &mdash; Friends of Jim Bednar
+          </footer>
+        </blockquote>
+      </div>
+    </section>
+
     <!-- ===== About ===== -->
     <section id="about" class="scroll-mt-24 border-y-4 border-navy bg-navy-pale/40">
       <div class="mx-auto max-w-4xl px-4 py-16 md:py-20">
@@ -235,7 +253,8 @@ const navLinks = [
         <h2
           class="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight text-navy sm:text-5xl"
         >
-          Seventy years of Springfield,<br class="hidden sm:inline" /> forty years of service
+          Seventy years of Springfield,<br class="hidden sm:inline" /> forty years of public
+          service
         </h2>
 
         <div class="mt-8 space-y-5 text-lg leading-relaxed">
@@ -246,16 +265,17 @@ const navLinks = [
             Keene and Wilmot. That sense of service was instilled in Jim.
           </p>
           <p>
-            He served his country for close to forty years with <strong>USAID</strong>,
-            heading programs throughout Africa, Asia, the Middle East, and in post-Communist
-            Czechoslovakia. Throughout all of it, Springfield was home &mdash; where Jim, his
-            wife and their three children spent summers and holidays.
+            He served his country for close to forty years with <strong>USAID</strong>, the
+            United States Agency for International Development, heading American foreign
+            assistance programs throughout Africa, Asia, the Middle East, and in
+            post-Communist Czechoslovakia. Throughout all of it, Springfield was home
+            &mdash; where Jim, his wife and their three children spent summers and holidays.
           </p>
           <p>
             Across that career and the retirements that followed, the commitment stayed the
-            same: support and strengthen communities. Small farmers in Africa. Small
-            businesses in Czechoslovakia. Helping communities in Sri Lanka recover and
-            rebuild after their civil war.
+            same: support and strengthen communities. Be it small scale farmers in Africa,
+            small businesses in Czechoslovakia, or communities in Sri Lanka recovering and
+            rebuilding after their civil war.
           </p>
           <p>
             Retiring full time to Springfield did not change the pattern. Jim has served on
@@ -280,7 +300,7 @@ const navLinks = [
           {
             [
               { n: '70', unit: 'years', label: 'of Bednars in Springfield' },
-              { n: '40', unit: 'years', label: 'with USAID, on four continents' },
+              { n: '40', unit: 'years', label: 'of USAID foreign assistance work' },
               { n: '10', unit: 'years', label: 'heading the Historical Society' },
             ].map((stat) => (
               <div class="border-t-4 border-flag-red bg-white p-5 shadow-sm">
@@ -298,17 +318,6 @@ const navLinks = [
           }
         </dl>
 
-        <blockquote class="mt-10 border-l-4 border-flag-red bg-white p-6 shadow-sm">
-          <p class="text-xl italic leading-relaxed text-navy-dark">
-            When Jim becomes Commissioner, it will be the fourth time he has come out of
-            retirement to serve.
-          </p>
-          <footer
-            class="mt-4 font-display text-sm font-bold uppercase tracking-widest text-flag-red"
-          >
-            &mdash; Friends of Jim Bednar
-          </footer>
-        </blockquote>
       </div>
     </section>
 
@@ -517,6 +526,9 @@ const navLinks = [
       </p>
       <p class="font-display text-xs font-bold uppercase tracking-[0.25em] text-white/70">
         Paid for by the Friends of Jim Bednar
+      </p>
+      <p class="text-sm text-navy-pale/90">
+        Box 133, Springfield, NH 03284 &middot; Kerry McNally, Treasurer
       </p>
       <p>
         <a href={`mailto:${EMAIL}`} class="hover:underline">{EMAIL}</a>

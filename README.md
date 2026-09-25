@@ -63,4 +63,4 @@ confirm the occasion with the campaign if it matters.
 - Contribute: https://secure.actblue.com/donate/jim-bednar-1
 - Email: bednar4sullivannh@gmail.com
 
-Paid for by the Friends of Jim Bednar.
+Paid for by the Friends of Jim Bednar, Box 133, Springfield, NH 03284. Kerry McNally, Treasurer.
