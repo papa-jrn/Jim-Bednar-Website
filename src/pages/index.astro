@@ -8,7 +8,6 @@ import gathering from '../assets/gathering.jpg';
 
 const ACTBLUE = 'https://secure.actblue.com/donate/jim-bednar-1';
 const EMAIL = 'bednar4sullivannh@gmail.com';
-const CURRENT_SITE = 'https://bednar4nh.com/';
 const COUNTY_DEMS = 'https://vote.sullivancountynhdems.org/jim-bednar';
 
 // The four pillar headings are word-for-word from the campaign flyer and business card;
@@ -485,21 +484,13 @@ const navLinks = [
           >
         </div>
 
-        <div class="mt-10 grid gap-4 text-left sm:grid-cols-3">
+        <div class="mx-auto mt-10 grid max-w-2xl gap-4 text-left sm:grid-cols-2">
           <div class="border-t-2 border-navy bg-white p-5">
             <p class="font-display text-xs font-bold uppercase tracking-widest text-flag-red">
               Email
             </p>
             <a href={`mailto:${EMAIL}`} class="mt-2 block break-all text-navy hover:underline"
               >{EMAIL}</a
-            >
-          </div>
-          <div class="border-t-2 border-navy bg-white p-5">
-            <p class="font-display text-xs font-bold uppercase tracking-widest text-flag-red">
-              Campaign site
-            </p>
-            <a href={CURRENT_SITE} class="mt-2 block break-all text-navy hover:underline"
-              >bednar4nh.com</a
             >
           </div>
           <div class="border-t-2 border-navy bg-white p-5">
