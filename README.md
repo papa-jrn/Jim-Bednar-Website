@@ -1,8 +1,13 @@
 # Jim Bednar for Sullivan County Commissioner
 
 One-page campaign website for Jim Bednar, Democratic candidate for Sullivan County
-Commissioner, **District 2** (Croydon, Grantham, Newport, Plainfield, Springfield),
-New Hampshire.
+Commissioner, New Hampshire.
+
+The seat is the District 2 seat (Croydon, Grantham, Newport, Plainfield, Springfield),
+but under [NH RSA 653:1](https://gc.nh.gov/rsa/html/LXIII/653/653-1.htm) Sullivan County
+elects each commissioner "by all the voters of the county." The site deliberately leads
+with **Sullivan County** rather than the district, at the candidate's request, so voters
+in the other ten communities don't assume the race isn't theirs.
 
 Built with the **AHA stack**: [Astro](https://astro.build) + [htmx](https://htmx.org) +
 [Alpine.js](https://alpinejs.dev), styled with Tailwind CSS.
@@ -45,10 +50,13 @@ Everything on the page is drawn from campaign materials or public records:
 - [New London Democrats town committee list](https://newlondondemocrats.com/democratic-town-committees/)
   — Jim chairs the Springfield Democratic Town Committee
 - District 2 boundaries: NH RSA 28 / [HB 1717 (2012)](https://gc.nh.gov/legislation/2012/HB1717.html)
+- Countywide election of commissioners: [NH RSA 653:1](https://gc.nh.gov/rsa/html/LXIII/653/653-1.htm)
+- Biography and campaign photos supplied by the candidate, September 2026
 - County facts: [About Sullivan County](https://www.sullivancountynh.gov/1219/About-Sullivan-County)
 
-There is a `TODO (campaign)` comment in `src/pages/index.astro` marking where Jim's own
-biography should go once the campaign supplies it.
+The biography in the About section is Jim's own, supplied by the campaign in September
+2026. Photo captions in the "On the trail" section are descriptive rather than sourced —
+confirm the occasion with the campaign if it matters.
 
 ## Links
 

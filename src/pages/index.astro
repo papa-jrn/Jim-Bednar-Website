@@ -2,38 +2,58 @@
 import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import headshot from '../assets/headshot.jpg';
+import speaking from '../assets/speaking.jpg';
+import makingTheCase from '../assets/making-the-case.jpg';
+import gathering from '../assets/gathering.jpg';
 
 const ACTBLUE = 'https://secure.actblue.com/donate/jim-bednar-1';
 const EMAIL = 'bednar4sullivannh@gmail.com';
 const CURRENT_SITE = 'https://bednar4nh.com/';
 const COUNTY_DEMS = 'https://vote.sullivancountynhdems.org/jim-bednar';
 
-// The four pillars, taken word-for-word from the campaign flyer.
+// The four pillar headings are word-for-word from the campaign flyer and business card;
+// the blurbs draw on the biography Jim supplied.
 const pillars = [
   {
     title: 'Responsible stewardship of your tax dollars',
     blurb:
-      'The county portion of your property tax bill is real money from real households. Every line of the county budget should be able to explain itself.',
+      'Jim spent a career answerable for public money — program budgets funded by American taxpayers, audited and justified line by line. The county portion of your tax bill deserves the same scrutiny.',
   },
   {
     title: 'Proven leadership and practical experience',
     blurb:
-      'The commission is a management job — budgets, buildings, contracts, and people. Jim is running on a record of doing that work, not learning it on the job.',
+      'Nearly forty years with USAID heading programs across Africa, Asia, the Middle East and post-Communist Czechoslovakia. Budgets, staff, and hard decisions in places where getting it wrong had consequences.',
   },
   {
     title: 'Long-term roots in Sullivan County',
     blurb:
-      'Croydon, Grantham, Newport, Plainfield, and Springfield are not a line on a map to Jim. They are home, and he has spent years showing up for them.',
+      'The Bednars came to Springfield seventy years ago. Jim raised three children on summers and holidays here, and has served the town from the zoning board to the Historical Society since retiring home.',
   },
   {
     title: 'Working together for a stronger community',
     blurb:
-      'County government is not partisan work. It is nursing home shifts, jail beds, deeds, and dispatch — and it only works when people cooperate.',
+      'Ten years leading the Springfield Historical Society turned a quiet museum into a place the town actually gathers — including a traditional barn raising to house Springfield’s agricultural heritage.',
   },
 ];
 
-// Sullivan County Commissioner District 2 — boundaries set in NH RSA 28.
-const towns = ['Croydon', 'Grantham', 'Newport', 'Plainfield', 'Springfield'];
+// Photos from a campaign gathering, supplied by the campaign in September 2026.
+const photos = [
+  {
+    src: speaking,
+    alt: 'Jim Bednar standing with notes in hand, speaking to a seated group in a sunlit room',
+    caption: 'Making the case to a room of neighbors',
+  },
+  {
+    src: makingTheCase,
+    alt: 'Jim Bednar gesturing while speaking, standing behind a table set with food, guests listening',
+    caption: 'Taking questions over the potluck table',
+  },
+  {
+    src: gathering,
+    alt: 'A living room full of seated guests listening during a campaign gathering',
+    caption: 'A full room, on a Sunday afternoon',
+  },
+];
 
 // Each topic is fetched on demand by htmx from /public/partials/.
 const topics = [
@@ -46,15 +66,15 @@ const topics = [
 const navLinks = [
   { href: '#about', label: 'About Jim' },
   { href: '#priorities', label: 'Priorities' },
-  { href: '#district', label: 'District 2' },
+  { href: '#trail', label: 'On the Trail' },
   { href: '#county', label: 'County 101' },
   { href: '#contact', label: 'Contact' },
 ];
 ---
 
 <Layout
-  title="Jim Bednar for Sullivan County Commissioner | District 2, New Hampshire"
-  description="Jim Bednar is the Democratic candidate for Sullivan County Commissioner in District 2 — Croydon, Grantham, Newport, Plainfield, and Springfield. Fresh thinking by an experienced manager."
+  title="Jim Bednar for Sullivan County Commissioner | New Hampshire"
+  description="Jim Bednar is the Democratic candidate for Sullivan County Commissioner — nearly forty years with USAID, seventy years of family roots in Springfield. Fresh thinking by an experienced manager."
 >
   <!-- ===== Nav ===== -->
   <header x-data="{ open: false }" class="sticky top-0 z-50 bg-white shadow-sm">
@@ -155,7 +175,11 @@ const navLinks = [
           <p
             class="mt-4 font-display text-lg font-bold uppercase tracking-[0.12em] text-navy sm:text-xl sm:tracking-[0.2em]"
           >
-            District 2 &middot; New Hampshire
+            Sullivan County &middot; New Hampshire
+          </p>
+
+          <p class="mt-3 text-base text-slate-600">
+            Every voter in Sullivan County votes on this seat.
           </p>
 
           <p class="mt-6 max-w-lg text-xl italic leading-relaxed text-slate-700">
@@ -212,47 +236,78 @@ const navLinks = [
         <h2
           class="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight text-navy sm:text-5xl"
         >
-          An experienced manager, and a neighbor
+          Seventy years of Springfield,<br class="hidden sm:inline" /> forty years of service
         </h2>
 
         <div class="mt-8 space-y-5 text-lg leading-relaxed">
           <p>
-            Jim Bednar is running for Sullivan County Commissioner in District 2 &mdash; the
-            towns of Croydon, Grantham, Newport, Plainfield, and Springfield &mdash; because
-            county government is a management job, and management is what he knows.
+            Jim Bednar&rsquo;s family came to Springfield, New Hampshire seventy years ago.
+            After retiring from the ministry, Jim&rsquo;s father moved here with his wife
+            &mdash; able to rest, but still serving communities, preaching in Claremont,
+            Keene and Wilmot. That sense of service was instilled in Jim.
           </p>
           <p>
-            He is not new to this community or to the work of showing up for it. Jim chairs
-            the <strong>Springfield Democratic Town Committee</strong>, and he has spent years
-            building the kind of long-term roots in Sullivan County that make a candidate
-            accountable to the people he would serve.
+            He served his country for close to forty years with <strong>USAID</strong>,
+            heading programs throughout Africa, Asia, the Middle East, and in post-Communist
+            Czechoslovakia. Throughout all of it, Springfield was home &mdash; where Jim, his
+            wife and their three children spent summers and holidays.
           </p>
           <p>
-            His pitch is a plain one: the county runs a 156-bed nursing home, a jail, a
-            sheriff&rsquo;s office, a registry of deeds, and a payroll of roughly 280 people on
-            money raised almost entirely from local property taxpayers. That deserves careful,
-            unglamorous, professional management &mdash; and a commissioner willing to do the
-            homework before asking anyone for another dollar.
+            Across that career and the retirements that followed, the commitment stayed the
+            same: support and strengthen communities. Small farmers in Africa. Small
+            businesses in Czechoslovakia. Helping communities in Sri Lanka recover and
+            rebuild after their civil war.
+          </p>
+          <p>
+            Retiring full time to Springfield did not change the pattern. Jim has served on
+            the town <strong>zoning board</strong> and the <strong>Springfield 250th
+            Celebration committee</strong>, and for the last ten years has headed the
+            <strong>Springfield Historical Society</strong>. Under his leadership the
+            Historical Society Museum was transformed into a place where the community
+            gathers and takes part &mdash; and a traditional barn raising built a barn to
+            display Springfield&rsquo;s agricultural heritage. He also chairs
+            <strong>Springfield&rsquo;s Democratic Committee</strong>, building a community
+            of like-minded neighbors to support candidates and policies that benefit the
+            town.
+          </p>
+          <p>
+            Jim will bring that same commitment to supporting communities to the job of
+            County Commissioner.
           </p>
         </div>
 
-        <!--
-          TODO (campaign): drop Jim's own biography in here — career history, years in
-          Springfield, family, boards served on. Everything above is drawn only from the
-          campaign flyer, the Sullivan County Democrats candidate page, and the New London
-          Democrats town committee listing.
-        -->
+        <!-- At-a-glance figures, all drawn from the biography above. -->
+        <dl class="mt-10 grid gap-4 sm:grid-cols-3">
+          {
+            [
+              { n: '70', unit: 'years', label: 'of Bednars in Springfield' },
+              { n: '40', unit: 'years', label: 'with USAID, on four continents' },
+              { n: '10', unit: 'years', label: 'heading the Historical Society' },
+            ].map((stat) => (
+              <div class="border-t-4 border-flag-red bg-white p-5 shadow-sm">
+                <dt class="flex items-baseline gap-2">
+                  <span class="font-display text-4xl font-black leading-none text-navy">
+                    {stat.n}
+                  </span>
+                  <span class="font-display text-sm font-bold uppercase tracking-widest text-flag-red">
+                    {stat.unit}
+                  </span>
+                </dt>
+                <dd class="mt-2 leading-snug text-slate-700">{stat.label}</dd>
+              </div>
+            ))
+          }
+        </dl>
 
         <blockquote class="mt-10 border-l-4 border-flag-red bg-white p-6 shadow-sm">
           <p class="text-xl italic leading-relaxed text-navy-dark">
-            Responsible stewardship of your tax dollars. Proven leadership and practical
-            experience. Long-term roots in Sullivan County. Working together for a stronger
-            community.
+            When Jim becomes Commissioner, it will be the fourth time he has come out of
+            retirement to serve.
           </p>
           <footer
             class="mt-4 font-display text-sm font-bold uppercase tracking-widest text-flag-red"
           >
-            &mdash; The Jim Bednar campaign, in four lines
+            &mdash; Friends of Jim Bednar
           </footer>
         </blockquote>
       </div>
@@ -295,52 +350,45 @@ const navLinks = [
       </div>
     </section>
 
-    <!-- ===== District 2 ===== -->
-    <section id="district" class="scroll-mt-24 bg-navy text-white">
-      <div class="mx-auto grid max-w-6xl gap-12 px-4 py-16 md:grid-cols-2 md:py-20">
-        <div>
+    <!-- ===== On the trail (photos) ===== -->
+    <section id="trail" class="scroll-mt-24 bg-navy text-white">
+      <div class="mx-auto max-w-6xl px-4 py-16 md:py-20">
+        <div class="max-w-2xl">
           <p class="font-display text-sm font-bold uppercase tracking-[0.25em] text-white/70">
-            The District
+            Out in the County
           </p>
           <h2 class="mt-3 font-display text-4xl font-extrabold uppercase tracking-tight sm:text-5xl">
-            Five towns,<br />one seat
+            On the trail
           </h2>
-          <div class="mt-6 space-y-5 text-lg leading-relaxed text-navy-pale">
-            <p>
-              Sullivan County Commissioner District 2 covers five towns along the
-              county&rsquo;s eastern and northern edge: Croydon, Grantham, Newport,
-              Plainfield, and Springfield. Newport is the county seat, so District 2 also
-              happens to be where most of county government sits.
-            </p>
-            <p>
-              Between them these towns send one commissioner to a three-member board that
-              sets the county budget for all 528 square miles, fourteen towns, and the city
-              of Claremont. It is a small seat with a long reach &mdash; and it turns over
-              rarely enough that who holds it genuinely matters.
-            </p>
-          </div>
+          <p class="mt-4 text-lg leading-relaxed text-navy-pale">
+            Sullivan County is fifteen communities spread across 528 square miles, and all of
+            them vote on this seat. Jim is spending the campaign the way county races are won
+            &mdash; in living rooms, around kitchen tables, answering questions one at a time.
+          </p>
         </div>
 
-        <div class="md:pt-16">
-          <h3 class="font-display text-sm font-bold uppercase tracking-[0.25em] text-white/70">
-            District 2 towns
-          </h3>
-          <ul class="mt-5 space-y-3">
-            {
-              towns.map((town) => (
-                <li class="flex items-center gap-4 border-l-4 border-flag-red bg-navy-light/30 px-5 py-3">
-                  <span class="text-white/60" aria-hidden="true">
-                    &#9733;
-                  </span>
-                  <span class="font-display text-xl font-bold uppercase tracking-wide">{town}</span>
-                </li>
-              ))
-            }
-          </ul>
-          <p class="mt-6 text-sm text-navy-pale/80">
-            District boundaries are set in NH RSA 28. District 1 is Claremont and Cornish;
-            District 3 is the county&rsquo;s eight remaining towns.
-          </p>
+        <div class="mt-10 grid gap-6 sm:grid-cols-3">
+          {
+            photos.map((photo) => (
+              <figure>
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  class="aspect-[4/3] w-full border-4 border-white/15 object-cover shadow-lg"
+                  widths={[360, 640]}
+                  sizes="(min-width: 640px) 22rem, 100vw"
+                  loading="lazy"
+                />
+                <figcaption class="mt-3 text-sm italic text-navy-pale/90">
+                  {photo.caption}
+                </figcaption>
+              </figure>
+            ))
+          }
+        </div>
+
+        <div class="mt-10 flex gap-4 text-2xl text-white/40" aria-hidden="true">
+          <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
         </div>
       </div>
     </section>
