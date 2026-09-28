@@ -2,9 +2,9 @@
 import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import headshot from '../assets/headshot.jpg';
-import speaking from '../assets/speaking.jpg';
-import makingTheCase from '../assets/making-the-case.jpg';
-import gathering from '../assets/gathering.jpg';
+import forumHall from '../assets/forum-hall.jpg';
+import forumPanel from '../assets/forum-panel.jpg';
+import forumGroup from '../assets/forum-group.jpg';
 
 const ACTBLUE = 'https://secure.actblue.com/donate/jim-bednar-1';
 const EMAIL = 'bednar4sullivannh@gmail.com';
@@ -35,22 +35,23 @@ const pillars = [
   },
 ];
 
-// Photos from a campaign gathering, supplied by the campaign in September 2026.
+// Candidate forum held in Springfield, NH — candidates of both parties attended.
+// Supplied by the campaign, September 2026.
 const photos = [
   {
-    src: speaking,
-    alt: 'Jim Bednar standing with notes in hand, speaking to a seated group in a sunlit room',
-    caption: 'Making the case to a room of neighbors',
+    src: forumHall,
+    alt: 'A packed Springfield town hall, residents filling the pews while candidates sit at a long table on the stage',
+    caption: 'A full house for the candidate forum in Springfield',
   },
   {
-    src: makingTheCase,
-    alt: 'Jim Bednar gesturing while speaking, standing behind a table set with food, guests listening',
-    caption: 'Taking questions over the potluck table',
+    src: forumPanel,
+    alt: 'Jim Bednar seated behind his name placard with other candidates at the forum table as one of them answers a question',
+    caption: 'On the panel, taking questions from neighbors',
   },
   {
-    src: gathering,
-    alt: 'A living room full of seated guests listening during a campaign gathering',
-    caption: 'A full room, on a Sunday afternoon',
+    src: forumGroup,
+    alt: 'Candidates from both parties standing together on the hall floor for a group photo after the forum',
+    caption: 'Democrats and Republicans, same stage, same night',
   },
 ];
 
@@ -260,9 +261,9 @@ const navLinks = [
         <div class="mt-8 space-y-5 text-lg leading-relaxed">
           <p>
             Jim Bednar&rsquo;s family came to Springfield, New Hampshire seventy years ago.
-            After retiring from the ministry, Jim&rsquo;s father moved here with his wife
-            &mdash; able to rest, but still serving communities, preaching in Claremont,
-            Keene and Wilmot. That sense of service was instilled in Jim.
+            After retiring in 1973, Jim&rsquo;s father moved here with his wife &mdash; but
+            continued serving communities, preaching in Claremont, Keene and Wilmot. That
+            sense of service was instilled in Jim.
           </p>
           <p>
             He served his country for close to forty years with <strong>USAID</strong>, the
@@ -279,12 +280,13 @@ const navLinks = [
           </p>
           <p>
             Retiring full time to Springfield did not change the pattern. Jim has served on
-            the town <strong>zoning board</strong> and the <strong>Springfield 250th
-            Celebration committee</strong>, and for the last ten years has headed the
+            the town <strong>zoning board</strong>, the <strong>building and maintenance
+            committee</strong>, <strong>Springfield&rsquo;s 250th Celebration
+            committee</strong>, and for the last ten years has headed the
             <strong>Springfield Historical Society</strong>. Under his leadership the
             Historical Society Museum was transformed into a place where the community
-            gathers and takes part &mdash; and a traditional barn raising built a barn to
-            display Springfield&rsquo;s agricultural heritage. He also chairs
+            gathers &mdash; and a traditional barn raising built a barn to display
+            Springfield&rsquo;s agricultural heritage. He also chairs
             <strong>Springfield&rsquo;s Democratic Committee</strong>, building a community
             of like-minded neighbors to support candidates and policies that benefit the
             town.
@@ -371,7 +373,8 @@ const navLinks = [
           <p class="mt-4 text-lg leading-relaxed text-navy-pale">
             Sullivan County is fifteen communities spread across 528 square miles, and all of
             them vote on this seat. Jim is spending the campaign the way county races are won
-            &mdash; in living rooms, around kitchen tables, answering questions one at a time.
+            &mdash; on forum stages and around kitchen tables, answering questions one at a
+            time, alongside candidates of both parties.
           </p>
         </div>
 
@@ -383,7 +386,7 @@ const navLinks = [
                   src={photo.src}
                   alt={photo.alt}
                   class="aspect-[4/3] w-full border-4 border-white/15 object-cover shadow-lg"
-                  widths={[360, 640]}
+                  widths={[360, 720, 1080]}
                   sizes="(min-width: 640px) 22rem, 100vw"
                   loading="lazy"
                 />
